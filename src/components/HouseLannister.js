@@ -7,6 +7,7 @@ const url =
 const HouseLannister = () => {
   const [house, setHouse] = useState([]);
   const [information, setInformation] = useState([]);
+  const [characters, setCharacters] = useState([]);
 
   useEffect(() => {
     fetch(url)
@@ -19,17 +20,17 @@ const HouseLannister = () => {
       .then((data) => {
         setHouse(data[0].name);
         setInformation(data);
+        setCharacters(data[0].swornMembers);
       })
       .catch((error) => {
         console.log("error", error);
       });
   }, []);
 
-  console.log(information);
   const info = information.map((data) => {
     return (
       <>
-        <p>region = {data.region}</p>
+        <p>Region = {data.region}</p>
         <p>Coat of Arms = {data.coatOfArms}</p>
         <p>Titles = {data.titles}</p>
         <p>Seats = {data.seats}</p>
@@ -37,10 +38,19 @@ const HouseLannister = () => {
       </>
     );
   });
+  const infoCharacters = characters.map((data) => {
+    return (
+      <>
+        <li>{data}</li>
+      </>
+    );
+  });
+
   return (
     <>
-      <h3>{house}</h3>
+      <h1>{house}</h1>
       <h5>{info}</h5>
+      <h5>Characters = {infoCharacters}</h5>
     </>
   );
 };

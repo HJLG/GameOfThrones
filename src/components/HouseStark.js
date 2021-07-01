@@ -7,6 +7,7 @@ const url =
 const HouseStark = () => {
   const [house, setHouse] = useState([]);
   const [information, setInformation] = useState([]);
+  const [characters, setCharacters] = useState([]);
 
   useEffect(() => {
     fetch(url)
@@ -19,6 +20,7 @@ const HouseStark = () => {
       .then((data) => {
         setHouse(data[0].name);
         setInformation(data);
+        setCharacters(data[0].swornMembers)
       })
       .catch((error) => {
         console.log("error", error);
@@ -37,10 +39,18 @@ const HouseStark = () => {
       </>
     );
   });
+  const infoCharacters = characters.map((data) => {
+    return (
+        <>
+        <li>{data}</li>
+        </>
+    )
+})
   return (
     <>
       <h3>{house}</h3>
       <h5>{info}</h5>
+      <h5>Characters = {infoCharacters}</h5>
     </>
   );
 };
