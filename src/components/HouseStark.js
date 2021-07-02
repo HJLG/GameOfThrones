@@ -1,5 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import CharactersStark from "./CharactersStark";
 
 const url =
   "https://www.anapioficeandfire.com/api/houses?name=House%20Stark%20of%20Winterfell";
@@ -20,14 +21,13 @@ const HouseStark = () => {
       .then((data) => {
         setHouse(data[0].name);
         setInformation(data);
-        setCharacters(data[0].swornMembers)
+        setCharacters(data[0].swornMembers);
       })
       .catch((error) => {
         console.log("error", error);
       });
   }, []);
 
-  console.log(information);
   const info = information.map((data) => {
     return (
       <>
@@ -39,18 +39,14 @@ const HouseStark = () => {
       </>
     );
   });
-  const infoCharacters = characters.map((data) => {
-    return (
-        <>
-        <li>{data}</li>
-        </>
-    )
-})
+
   return (
     <>
-      <h3>{house}</h3>
+      <h1>{house}</h1>
       <h5>{info}</h5>
-      <h5>Characters = {infoCharacters}</h5>
+      <br />
+      <h3>Sworn Members of House Stark</h3>
+      <CharactersStark characters={characters} />
     </>
   );
 };

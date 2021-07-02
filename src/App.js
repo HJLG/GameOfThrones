@@ -10,8 +10,9 @@ function App() {
     <div className="App">
       <nav>
         <Link to="/">Home Page</Link>
-        <br/>
-        <Link to="/housestark">House Stark</Link><br/>
+        <br />
+        <Link to="/housestark">House Stark</Link>
+        <br />
         <Link to="/houselannister">House Lannister</Link>
       </nav>
       <main>

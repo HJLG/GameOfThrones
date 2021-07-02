@@ -1,5 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import CharactersLannister from "./CharactersLannister";
 
 const url =
   "https://anapioficeandfire.com/api/houses?name=House%20Lannister%20of%20Casterly%20Rock";
@@ -38,19 +39,14 @@ const HouseLannister = () => {
       </>
     );
   });
-  const infoCharacters = characters.map((data) => {
-    return (
-      <>
-        <li>{data}</li>
-      </>
-    );
-  });
 
   return (
     <>
       <h1>{house}</h1>
       <h5>{info}</h5>
-      <h5>Characters = {infoCharacters}</h5>
+      <br />
+      <h3>Sworn Members of House Lannister</h3>
+      <CharactersLannister characters={characters} />
     </>
   );
 };
