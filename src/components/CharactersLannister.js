@@ -17,10 +17,15 @@ const CharactersLannister = ({ characters }) => {
       });
   }, [characters]);
 
-  const nameOfCharacter = characterInfo.map((data) => {
-    return <li>{data.name}</li>;
+  // const info = characterInfo.map((data) => {
+  //   return <li>{data.gender}</li>;
+  // });
+
+  const nameOfCharacter = characterInfo.map((data, index) => {
+    return <li id={index}>{data.name}</li>;
   });
 
   return <div>{nameOfCharacter}</div>;
 };
+
 export default CharactersLannister;

@@ -17,10 +17,10 @@ const CharactersStark = ({ characters }) => {
       });
   }, [characters]);
 
-  const nameOfCharacter = characterInfo.map((data) => {
-    return <li>{data.name}</li>;
+  const nameOfCharacter = characterInfo.map((data, index) => {
+    return <li id = {index}>{data.name}</li>;
   });
 
-  return <div>{nameOfCharacter}</div>;
+  return <div class= "characters">{nameOfCharacter}</div>;
 };
 export default CharactersStark;

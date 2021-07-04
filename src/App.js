@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import HomePage from "./components/HomePage";
 import { Route, Link, Switch } from "react-router-dom";
@@ -6,6 +6,11 @@ import HouseStark from "./components/HouseStark";
 import HouseLannister from "./components/HouseLannister";
 
 function App() {
+  const [person, setPerson] = useState(null)
+
+  // const handleClick = (person) => {
+  //   setPerson(person)
+  // }
   return (
     <div className="App">
       <nav>
@@ -21,7 +26,8 @@ function App() {
             <HomePage />
           </Route>
           <Route path="/housestark">
-            <HouseStark />
+            {/* <HouseStark handler = {handleClick} person = {person}/> */}
+            <HouseStark/>
           </Route>
           <Route path="/houselannister">
             <HouseLannister />
