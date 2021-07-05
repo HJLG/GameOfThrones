@@ -42,6 +42,7 @@ const HouseLannister = () => {
 
   return (
     <>
+      <img src = "https://i.imgur.com/OgEGQKX.png" className ="lannistersigil" alt = ""/>
       <h1>{house}</h1>
       <h5>{info}</h5>
       <br />

@@ -1,5 +1,6 @@
 import { useState, React, useEffect } from "react";
-
+import { Link } from "react-router-dom"
+ 
 const CharactersLannister = ({ characters }) => {
   const [characterInfo, setCharactersInfo] = useState([]);
 
@@ -13,19 +14,21 @@ const CharactersLannister = ({ characters }) => {
       })
       .then((data) => {
         setCharactersInfo(data);
-        console.log("every characters data", data);
       });
   }, [characters]);
 
-  // const info = characterInfo.map((data) => {
-  //   return <li>{data.gender}</li>;
-  // });
-
   const nameOfCharacter = characterInfo.map((data, index) => {
-    return <li id={index}>{data.name}</li>;
+    const splitty = data.url.split("/");
+    const splitted = splitty[splitty.length - 1];
+
+    return (
+      <li id={index}>
+        <Link to={splitted}>{data.name}</Link>
+      </li>
+    );
   });
 
-  return <div>{nameOfCharacter}</div>;
+  return <div class="characters">{nameOfCharacter}</div>;
 };
 
 export default CharactersLannister;

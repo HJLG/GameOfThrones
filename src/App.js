@@ -4,11 +4,10 @@ import HomePage from "./components/HomePage";
 import { Route, Switch } from "react-router-dom";
 import HouseStark from "./components/HouseStark";
 import HouseLannister from "./components/HouseLannister";
+import Information from "./components/Information";
 import "./App.css";
 import * as ReactBootStrap from "react-bootstrap";
 function App() {
-
-
   // const handleClick = (person) => {
   //   setPerson(person)
   // }
@@ -41,11 +40,13 @@ function App() {
             <HomePage />
           </Route>
           <Route path="/housestark">
-            {/* <HouseStark handler = {handleClick} person = {person}/> */}
             <HouseStark />
           </Route>
-          <Route path="/houselannister">
+          <Route exact path="/houselannister">
             <HouseLannister />
+          </Route>
+          <Route exact path="/:id">
+            <Information />
           </Route>
         </Switch>
       </main>

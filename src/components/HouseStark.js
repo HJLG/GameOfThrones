@@ -36,13 +36,13 @@ const HouseStark = () => {
         <p>Titles = {data.titles}</p>
         <p>Seats = {data.seats}</p>
         <p>Ancestral Weapons = {data.ancestralWeapons}</p>
-        <img src ="https://i.imgur.com/1FMiVjf.jpeg" className= "starksigil" alt = ""/>
       </>
     );
   });
 
   return (
     <>
+      <img src ="https://i.imgur.com/1FMiVjf.jpeg" className= "starksigil" alt = ""/>
       <h1>{house}</h1>
       <h5>{info}</h5>
       <br />
