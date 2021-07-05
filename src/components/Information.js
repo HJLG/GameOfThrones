@@ -3,11 +3,11 @@ import { useEffect, useState } from "react";
 
 const Information = () => {
   const { id } = useParams();
-  const url = `https://www.anapioficeandfire.com/api/characters/${id}`;
+  const api = `https://www.anapioficeandfire.com/api/characters/${id}`;
   const [info, setInfo] = useState([]);
 
   useEffect(() => {
-    fetch(url)
+    fetch(api)
       .then((res) => {
         if (res.ok) {
           return res.json();
@@ -16,25 +16,23 @@ const Information = () => {
       })
       .then((data) => {
         setInfo(data);
+        console.log(data)
+      })
+      .catch((error) => {
+        console.log("error", error);
       });
-  }, []);
+  }, [api]);
 
   const characterAliases = info?.aliases;
   const characterTv = info?.tvSeries;
 
-  console.log(characterAliases);
-
   const charAlias = characterAliases?.map((data) => {
-      return (
-          <li>{data}</li>
-      )
-  })
+    return <li>{data}</li>;
+  });
 
   const charTv = characterTv?.map((data) => {
-      return (
-          <li>{data}</li>
-      )
-  })
+    return <li>{data}</li>;
+  });
 
   return (
     <>
