@@ -8,9 +8,6 @@ import Information from "./components/Information";
 import "./App.css";
 import * as ReactBootStrap from "react-bootstrap";
 function App() {
-  // const handleClick = (person) => {
-  //   setPerson(person)
-  // }
   return (
     <div className="App">
       <ReactBootStrap.Navbar
@@ -43,7 +40,7 @@ function App() {
             <HouseStark />
           </Route>
           <Route exact path="/houselannister">
-            <HouseLannister />
+            <HouseLannister className= "houselannister"/>
           </Route>
           <Route exact path="/:id">
             <Information />

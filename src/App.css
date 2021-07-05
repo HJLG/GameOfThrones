@@ -2,7 +2,11 @@
     display: flex;
     right: 40px
 }
-.lannistersigil {
-    display: flex;
+.houselannister .lannistersigil {
     size: 40px;
+}
+
+.home {
+    text-align: center;
+    background-color: crimson;
 }
