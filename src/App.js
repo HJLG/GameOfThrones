@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
 import HomePage from "./components/HomePage";
-import { Route, Link, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import HouseStark from "./components/HouseStark";
 import HouseLannister from "./components/HouseLannister";
 import "./App.css";
 import * as ReactBootStrap from "react-bootstrap";
 function App() {
-  const [person, setPerson] = useState(null);
+
 
   // const handleClick = (person) => {
   //   setPerson(person)
@@ -26,7 +26,6 @@ function App() {
         <ReactBootStrap.Navbar.Toggle aria-controls="basic-navbar-nav" />
         <ReactBootStrap.Navbar.Collapse id="responsive-navbar-nav">
           <ReactBootStrap.Nav className="mr-auto">
-            \
             <ReactBootStrap.Nav.Link href="/housestark">
               House Stark
             </ReactBootStrap.Nav.Link>
