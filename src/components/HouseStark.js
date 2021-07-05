@@ -36,6 +36,7 @@ const HouseStark = () => {
         <p>Titles = {data.titles}</p>
         <p>Seats = {data.seats}</p>
         <p>Ancestral Weapons = {data.ancestralWeapons}</p>
+        <img src ="https://i.imgur.com/1FMiVjf.jpeg" className= "starksigil"/>
       </>
     );
   });

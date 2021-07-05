@@ -18,9 +18,9 @@ const CharactersStark = ({ characters }) => {
   }, [characters]);
 
   const nameOfCharacter = characterInfo.map((data, index) => {
-    return <li id = {index}>{data.name}</li>;
+    return <li id={index}>{data.name}</li>;
   });
 
-  return <div class= "characters">{nameOfCharacter}</div>;
+  return <div class="characters">{nameOfCharacter}</div>;
 };
 export default CharactersStark;
