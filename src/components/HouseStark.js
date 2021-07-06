@@ -31,7 +31,7 @@ const HouseStark = () => {
   const info = information.map((data) => {
     return (
       <>
-        <p>region = {data.region}</p>
+        <p>Region = {data.region}</p>
         <p>Coat of Arms = {data.coatOfArms}</p>
         <p>Titles = {data.titles}</p>
         <p>Seats = {data.seats}</p>

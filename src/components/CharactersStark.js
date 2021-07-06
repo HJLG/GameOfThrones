@@ -17,11 +17,9 @@ const CharactersStark = ({ characters }) => {
       });
   }, [characters]);
 
-  
-
   const nameOfCharacter = characterInfo.map((data, index) => {
-    const splitty = data.url.split("/")
-    const splitted = splitty[splitty.length - 1]
+    const splitty = data.url.split("/");
+    const splitted = splitty[splitty.length - 1];
 
     return (
       <li id={index}>

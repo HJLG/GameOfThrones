@@ -1,6 +1,6 @@
 import { useState, React, useEffect } from "react";
-import { Link } from "react-router-dom"
- 
+import { Link } from "react-router-dom";
+
 const CharactersLannister = ({ characters }) => {
   const [characterInfo, setCharactersInfo] = useState([]);
 
@@ -27,8 +27,14 @@ const CharactersLannister = ({ characters }) => {
       </li>
     );
   });
+  
 
-  return <div class="characters">{nameOfCharacter}</div>;
+  return (
+    <>
+      
+      <div class="characters">{nameOfCharacter}</div>;
+    </>
+  );
 };
 
 export default CharactersLannister;

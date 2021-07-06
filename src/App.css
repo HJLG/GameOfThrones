@@ -30,3 +30,13 @@
     text-align: center;
     background-color: crimson;
 }
+.male {
+    display: inline-flex;
+    max-width: 1%;
+    max-height: 1%;
+}
+.female {
+    display: inline-flex;
+    max-width: 1%;    
+    max-height: 1%;
+}
