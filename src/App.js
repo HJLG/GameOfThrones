@@ -4,6 +4,8 @@ import HomePage from "./components/HomePage";
 import { Route, Switch } from "react-router-dom";
 import HouseStark from "./components/HouseStark";
 import HouseLannister from "./components/HouseLannister";
+import HouseBaratheon from "./components/HouseBaratheon";
+import HouseTargaryen from "./components/HouseTargaryen";
 import Information from "./components/Information";
 import "./App.css";
 import * as ReactBootStrap from "react-bootstrap";
@@ -28,6 +30,12 @@ function App() {
             <ReactBootStrap.Nav.Link href="/houselannister">
               House Lannister
             </ReactBootStrap.Nav.Link>
+            <ReactBootStrap.Nav.Link href="/housebaratheon">
+              House Baratheon
+            </ReactBootStrap.Nav.Link>
+            <ReactBootStrap.Nav.Link href="/housetargaryen">
+              House Targaryen
+            </ReactBootStrap.Nav.Link>
           </ReactBootStrap.Nav>
         </ReactBootStrap.Navbar.Collapse>
       </ReactBootStrap.Navbar>
@@ -40,7 +48,13 @@ function App() {
             <HouseStark />
           </Route>
           <Route exact path="/houselannister">
-            <HouseLannister className= "houselannister"/>
+            <HouseLannister className="houselannister" />
+          </Route>
+          <Route exact path="/housebaratheon">
+            <HouseBaratheon className="housebaratheon" />
+          </Route>
+          <Route exact path="/housetargaryen">
+            <HouseTargaryen className="housetargaryen"/>
           </Route>
           <Route exact path="/:id">
             <Information />

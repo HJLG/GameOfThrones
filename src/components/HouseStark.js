@@ -35,7 +35,7 @@ const HouseStark = () => {
         <p>Coat of Arms = {data.coatOfArms}</p>
         <p>Titles = {data.titles}</p>
         <p>Seats = {data.seats}</p>
-        <p>Ancestral Weapons = {data.ancestralWeapons}</p>
+        <p>Ancestral Weapons = {data.ancestralWeapons}(destroyed)</p>
       </>
     );
   });

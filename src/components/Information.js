@@ -42,7 +42,7 @@ const Information = () => {
       <p>Born : {info.born}</p>
       <p>Died : {info.died}</p>
       <p>Aliases : {charAlias}</p>
-      <p>Appearred in the TV series :{charTv}</p>
+      <p>Appeared in the TV series :{charTv}</p>
       <p>Played by {info.playedBy}</p>
     </>
   );
