@@ -45,7 +45,7 @@ function App() {
             <HomePage />
           </Route>
           <Route path="/housestark">
-            <HouseStark />
+            <HouseStark className="housestark"/>
           </Route>
           <Route exact path="/houselannister">
             <HouseLannister className="houselannister" />

@@ -1,11 +1,31 @@
 .starksigil {
-    display: flex;
-    right: 40px
+    display: block;
+    position: absolute;
+    right:0%;
+    max-width: 40%;
+    max-height: 50%;
 }
-.houselannister .lannistersigil {
-    size: 40px;
+.lannistersigil {
+    display: block;
+    position: absolute;
+    right:10%;
+    max-width: 100%;
+    max-height: 50%;
 }
-
+.baratheonsigil {
+    display: block;
+    position: absolute;
+    right: 10%;
+    max-width: 100%;
+    max-height: 50%;
+}
+.targaryensigil {
+    display: block;
+    position: absolute;
+    right: 0%;
+    max-width: 100%;
+    max-height: 50%;
+}
 .home {
     text-align: center;
     background-color: crimson;

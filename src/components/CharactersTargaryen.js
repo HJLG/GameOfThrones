@@ -1,6 +1,6 @@
 import { useState, React, useEffect } from "react";
-import { Link } from "react-router-dom"
- 
+import { Link } from "react-router-dom";
+
 const CharactersTargaryen = ({ characters }) => {
   const [characterInfo, setCharactersInfo] = useState([]);
 
