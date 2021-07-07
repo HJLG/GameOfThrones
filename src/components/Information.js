@@ -7,7 +7,7 @@ const Information = () => {
   const { id } = useParams();
   const api = `https://www.anapioficeandfire.com/api/characters/${id}`;
   const [info, setInfo] = useState([]);
-  // const [spouseName, setSpouseName] = useState(null)
+  const [spouseName, setSpouseName] = useState(null);
 
   const characterAliases = info?.aliases;
   const characterTv = info?.tvSeries;
@@ -33,7 +33,15 @@ const Information = () => {
       })
       .then((data) => {
         setInfo(data);
-        console.log(data);
+        fetch(data.spouse)
+          .then((res) => {
+            if (res.ok) {
+              return res.json();
+            }
+          })
+          .then((data) => {
+            setSpouseName(data.name);
+          });
       })
       .catch((error) => {
         console.log("error", error);
@@ -67,7 +75,6 @@ const Information = () => {
   // });
 
   const split = info?.spouse?.split("/");
-  console.log(split);
   const splitted = split?.pop();
 
   return (
@@ -77,7 +84,9 @@ const Information = () => {
         Gender : {info.gender}
         {gender()}
       </p>
-      <Link to={splitted}>Spouse</Link>
+      <p>
+        Spouse : <Link to={splitted}>{spouseName}</Link>
+      </p>
       <p>Father : {info.father}</p>
       <p>Mother : {info.mother}</p>
       <p>Culture : {info.culture}</p>
