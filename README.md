@@ -8,8 +8,8 @@ https://anapioficeandfire.com/api
 
 
 ## COMPONENTS USED
+https://react-bootstrap.github.io/
 https://www.npmjs.com/package/react-gender
-https://react-bootstrap.github.io/getting-started/introduction/
 
 ## User Story
 

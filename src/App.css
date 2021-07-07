@@ -27,8 +27,12 @@
     max-height: 50%;
 }
 .home {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
     text-align: center;
-    background-color: crimson;
+
 }
 .male {
     display: inline-flex;

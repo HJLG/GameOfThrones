@@ -20,14 +20,22 @@ const CharactersLannister = ({ characters }) => {
   const nameOfCharacter = characterInfo.map((data, index) => {
     const splitty = data.url.split("/");
     const splitted = splitty[splitty.length - 1];
-
-    return (
-      <li id={index}>
-        <Link to={splitted}>{data.name}</Link>
-      </li>
-    );
+    if (data.aliases[0] === "") {
+      return (
+        <li id={index}>
+          <Link to={splitted}>{data.name}</Link>
+        </li>
+      );
+    } else {
+      return (
+        <li id={index}>
+          <Link to={splitted}>
+            {data.name}({data.aliases[0]})
+          </Link>
+        </li>
+      );
+    }
   });
-  
 
   return (
     <>
