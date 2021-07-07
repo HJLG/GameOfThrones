@@ -37,6 +37,6 @@ const CharactersStark = ({ characters }) => {
     }
   });
 
-  return <div class="characters">{nameOfCharacter}</div>;
+  return <div>{nameOfCharacter}</div>;
 };
 export default CharactersStark;

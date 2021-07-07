@@ -7,8 +7,10 @@ import HouseLannister from "./components/HouseLannister";
 import HouseBaratheon from "./components/HouseBaratheon";
 import HouseTargaryen from "./components/HouseTargaryen";
 import Information from "./components/Information";
+import Books from "./components/Books"
 import "./App.css";
 import * as ReactBootStrap from "react-bootstrap";
+
 function App() {
   return (
     <div className="App">
@@ -58,6 +60,9 @@ function App() {
           </Route>
           <Route exact path="/:id">
             <Information className="information" />
+          </Route>
+          <Route exact path="/books/:books">
+            <Books/>
           </Route>
         </Switch>
       </main>
