@@ -1,27 +1,27 @@
-import { useEffect, useState } from "react";
+import { useEffect, React, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 
 const Books = () => {
   const { books } = useParams();
   const booksApi = `https://www.anapioficeandfire.com/api/books/${books}`;
   const [information, setInformation] = useState(null);
+  const [characterName, setCharacterName] = useState(null);
   const publisher = information?.publisher;
   const country = information?.country;
   const released = information?.released;
   const title = information?.name;
-  const charactersBooks = information?.characters;
-  const characterMapped = charactersBooks?.map((data) => {
-    const splitAgain = data.split("/");
-    const oneMoreTime = splitAgain[splitAgain.length - 1];
-    return (
-      <li>
-        <Link to={`/${oneMoreTime}`}>{data}</Link>
-      </li>
-    );
-  });
   const authorsMapping = information?.authors;
   const authors = authorsMapping?.map((data) => {
     return <li>{data}</li>;
+  });
+  const characterMapped = characterName?.map((data) => {
+    const splitAgain = data.url.split("/");
+    const oneMoreTime = splitAgain[splitAgain.length - 1];
+    return (
+      <li>
+        <Link to={`/${oneMoreTime}`}>{data.name}</Link>
+      </li>
+    );
   });
 
   useEffect(() => {
@@ -34,7 +34,16 @@ const Books = () => {
       })
       .then((data) => {
         setInformation(data);
-        console.log(data);
+        let request = data?.characters?.map((data) => {
+          return fetch(data);
+        });
+        Promise.all(request)
+          .then((res) => {
+            return Promise.all(res.map((r) => r.json()));
+          })
+          .then((data) => {
+            setCharacterName(data);
+          });
       });
   }, [booksApi]);
 

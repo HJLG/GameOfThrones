@@ -10,12 +10,11 @@ const Information = () => {
   const [spouseName, setSpouseName] = useState(null);
   const [fatherName, setFatherName] = useState(null);
   const [motherName, setMotherName] = useState(null);
-  // const [books, setBooks] = useState(null);
+  const [books, setBooks] = useState(null);
 
   const characterAliases = info?.aliases;
   const characterTv = info?.tvSeries;
   const characterTitles = info?.titles;
-  const characterBooks = info?.books;
   const split = info?.spouse?.split("/");
   const splitted = split?.pop();
   const fatherSplit = info?.father?.split("/");
@@ -70,21 +69,21 @@ const Information = () => {
           .then((data) => {
             setMotherName(data.name);
           });
-        fetch(data.books[0])
+        let request = data?.books?.map((data) => {
+          return fetch(data);
+        });
+        Promise.all(request)
           .then((res) => {
-            if (res.ok) {
-              return res.json();
-            }
+            return Promise.all(res.map((r) => r.json()));
           })
           .then((data) => {
-            console.log("books data",data);
+            setBooks(data);
           });
       })
       .catch((error) => {
         console.log("error", error);
       });
   }, [api]);
-
   const gender = () => {
     if (info.gender === "Male") {
       return (
@@ -101,12 +100,14 @@ const Information = () => {
     }
   };
 
-  const charBooks = characterBooks?.map((data) => {
-    const booksSplit = data.split("/");
+  const charBooks = books?.map((data) => {
+    const booksSplit = data.url.split("/");
     const booksSplitted = booksSplit[booksSplit.length - 1];
     return (
       <li>
-        <Link to={`/books/${booksSplitted}`}>{data}</Link>
+        <Link to={`/books/${booksSplitted}`}>
+          Book {booksSplitted}, {data.name}
+        </Link>
       </li>
     );
   });
